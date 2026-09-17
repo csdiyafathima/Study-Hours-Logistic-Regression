@@ -5,7 +5,7 @@ st.title("🎓 Student Pass Prediction")
 st.write("Enter the student's study hours  and attendance to predict the result.")
 
 hours=st.number_input("Enter Study Hours",min_value=0.0,max_value=24.0,value=5.0,step=0.5)
-attendance=st.number_input("Enter the Attendance",min_value=0.0,max_value=100,value=69.0,step=1.0)
+attendance=st.number_input("Enter the Attendance",min_value=0.0,max_value=100.0,value=69.0,step=1.0)
 if st.button("🔮 Predict Result"):
     input_data = [[hours,attendance]]
     prediction = model.predict(input_data)
