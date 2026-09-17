@@ -1,11 +1,25 @@
 import streamlit as st
 import joblib
 model=joblib.load("logistic_regression_student_studyhours_model.pkl")
-st.title("Student Pass/Fail based on Study Hours")
-hours=st.number_input("Enter Study Hours",min_value=0.0,max_value=15.0,value=5.0)
-if st.button("Predict"):
-  prediction=model.predict([[hours]])
-  if prediction[0]==1:
-    st.success("Student will PASS")
-  else:
-    st.error("Student will FAIL")
+st.title("🎓 Student Pass Prediction")
+st.write("Enter the student's study hours to predict the result.")
+
+hours=st.number_input("Enter Study Hours",min_value=0.0,max_value=24.0,value=5.0,step=0.5)
+if st.button("🔮 Predict Result"):
+    input_data = [[study_hours]]
+    prediction = model.predict(input_data)
+    probabilities = model.predict_proba(input_data)
+    pass_probability = probabilities[0][1] * 100
+    fail_probability = probabilities[0][0] * 100
+
+    st.subheader("📊 Prediction Result")
+
+    if prediction[0] == 1:
+        st.success("✅ Student is predicted to PASS")
+    else:
+        st.error("❌ Student is predicted to FAIL")
+
+    st.write(f"### 🎯 Probability of Passing: {pass_probability:.2f}%")
+    st.progress(pass_probability / 100)
+
+    st.write(f"Probability of Failing: {fail_probability:.2f}%")
