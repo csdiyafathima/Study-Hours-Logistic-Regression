@@ -1,6 +1,6 @@
 import streamlit as st
 import joblib
-model=joblib.load("logistic_regression_student_studyhours_model.pkl")
+model=joblib.load("logistic_regression_student_studyhours_attendance_model.pkl")
 st.title("🎓 Student Pass Prediction")
 st.write("Enter the student's study hours  and attendance to predict the result.")
 
