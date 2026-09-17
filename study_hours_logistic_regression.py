@@ -6,7 +6,7 @@ st.write("Enter the student's study hours to predict the result.")
 
 hours=st.number_input("Enter Study Hours",min_value=0.0,max_value=24.0,value=5.0,step=0.5)
 if st.button("🔮 Predict Result"):
-    input_data = [[study_hours]]
+    input_data = [[hours]]
     prediction = model.predict(input_data)
     probabilities = model.predict_proba(input_data)
     pass_probability = probabilities[0][1] * 100
