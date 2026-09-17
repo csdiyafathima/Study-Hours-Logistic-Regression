@@ -19,7 +19,7 @@ if st.button("🔮 Predict Result"):
     else:
         st.error("❌ Student is predicted to FAIL")
 
-    st.write(f"### 🎯 Probability of Passing: {pass_probability:.2f}%")
+    st.write(f"Probability of Passing: {pass_probability:.2f}%")
     st.progress(pass_probability / 100)
 
     st.write(f"Probability of Failing: {fail_probability:.2f}%")
