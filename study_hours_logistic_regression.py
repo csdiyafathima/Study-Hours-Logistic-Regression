@@ -71,4 +71,4 @@ app = gr.Interface(
 
 
 # Launch the app
-app.launch()
+app.launch(erver_name="0.0.0.0", server_port=7860)
